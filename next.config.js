@@ -8,9 +8,7 @@ const withPWA = require('next-pwa')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',  // Required for GitHub Pages
   images: {
-    unoptimized: true, // Required for GitHub Pages (no server for image optimization)
     domains: ['images.unsplash.com'],
   },
 };
