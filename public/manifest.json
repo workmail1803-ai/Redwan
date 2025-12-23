@@ -1,0 +1,23 @@
+{
+  "name": "Sweet Delights BD - Premium Cakes",
+  "short_name": "Sweet Delights",
+  "description": "বাংলাদেশের সেরা কেক শপ - Premium cakes for all occasions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8F0",
+  "theme_color": "#db2777",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": [
+    "food",
+    "shopping"
+  ],
+  "lang": "bn-BD"
+}
