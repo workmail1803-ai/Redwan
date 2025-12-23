@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
@@ -57,7 +57,7 @@ export const getTrendingCakes = async (): Promise<Cake[]> => {
     .select('*')
     .eq('is_trending', true)
     .order('display_order', { ascending: true });
-  
+
   if (error) {
     console.error('Error fetching trending cakes:', error);
     return [];
@@ -72,7 +72,7 @@ export const getFeaturedCakes = async (): Promise<Cake[]> => {
     .select('*')
     .eq('is_featured', true)
     .order('display_order', { ascending: true });
-  
+
   if (error) {
     console.error('Error fetching featured cakes:', error);
     return [];
@@ -86,7 +86,7 @@ export const getAllCakes = async (): Promise<Cake[]> => {
     .from('cakes')
     .select('*')
     .order('display_order', { ascending: true });
-  
+
   if (error) {
     console.error('Error fetching cakes:', error);
     return [];
@@ -100,7 +100,7 @@ export const getCategories = async (): Promise<Category[]> => {
     .from('categories')
     .select('*')
     .order('display_order', { ascending: true });
-  
+
   if (error) {
     console.error('Error fetching categories:', error);
     return [];
@@ -115,7 +115,7 @@ export const getTestimonials = async (): Promise<Testimonial[]> => {
     .select('*')
     .eq('is_featured', true)
     .order('created_at', { ascending: false });
-  
+
   if (error) {
     console.error('Error fetching testimonials:', error);
     return [];
