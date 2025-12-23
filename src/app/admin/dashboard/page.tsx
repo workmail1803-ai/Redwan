@@ -242,7 +242,7 @@ export default function AdminDashboard() {
             { label: 'মোট কেক', value: cakes.length, icon: '🎂', color: 'bg-pink-500' },
             { label: 'ট্রেন্ডিং', value: cakes.filter(c => c.is_trending).length, icon: '🔥', color: 'bg-orange-500' },
             { label: 'ফিচার্ড', value: cakes.filter(c => c.is_featured).length, icon: '⭐', color: 'bg-yellow-500' },
-            { label: 'ক্যাটাগরি', value: [...new Set(cakes.map(c => c.category))].length, icon: '📁', color: 'bg-blue-500' },
+            { label: 'ক্যাটাগরি', value: Array.from(new Set(cakes.map(c => c.category))).length, icon: '📁', color: 'bg-blue-500' },
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -321,22 +321,20 @@ export default function AdminDashboard() {
                 <div className="flex gap-2 mt-4">
                   <button
                     onClick={() => toggleTrending(cake)}
-                    className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      cake.is_trending
+                    className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${cake.is_trending
                         ? 'bg-orange-100 text-orange-600'
                         : 'bg-gray-100 text-gray-600 hover:bg-orange-50'
-                    }`}
+                      }`}
                   >
                     <FaFire className="inline mr-1" />
                     ট্রেন্ডিং
                   </button>
                   <button
                     onClick={() => toggleFeatured(cake)}
-                    className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      cake.is_featured
+                    className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${cake.is_featured
                         ? 'bg-yellow-100 text-yellow-600'
                         : 'bg-gray-100 text-gray-600 hover:bg-yellow-50'
-                    }`}
+                      }`}
                   >
                     <FaStar className="inline mr-1" />
                     ফিচার্ড
